@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import Navbar from './components/NavBar';
+import Portfolio from './components/Portfolio';
+import DividendCalendar from './components/DividendCalendar';
+import Settings from './components/Settings';
+import theme from './theme';
+import TestComponent from './components/TestComponent';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={theme}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/calendar" element={<DividendCalendar />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/test" element={<TestComponent />} />
+        </Routes>
+      </Router>
+    </ChakraProvider>
   );
-}
+};
 
 export default App;

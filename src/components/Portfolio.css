@@ -1,0 +1,12 @@
+/* src/components/Portfolio.css */
+.portfolio-container {
+    padding: 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  h1, h2 {
+    margin-bottom: 10px;
+  }
